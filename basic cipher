@@ -1,0 +1,24 @@
+#works for positive and negative keys, case sensitive and takes symbols and spaces
+alphabet = 'abcdefghijklmnopqrstuvwxyz'
+ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+new_message = ''
+
+message = input("What is your message? ")
+shift = input("How many positions should the key shift by? ")
+key = int(shift)
+
+for character in message:
+    if character in alphabet:
+        position = alphabet.find(character)
+        new_position = (position + key) % 26
+        new_character = alphabet[new_position]
+        new_message += new_character
+    elif character in ALPHABET:
+        position = ALPHABET.find(character)
+        new_position = (position + key) % 26
+        new_character = ALPHABET[new_position]
+        new_message += new_character
+    else:
+        new_message += character
+
+print('Your encrypted message is:', new_message)
